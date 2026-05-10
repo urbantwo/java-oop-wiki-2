@@ -1,27 +1,28 @@
 site_name: OOP in Java | ITS Apulia Digital Foggia
 site_description: Ripasso guidato su Classi, Ereditarietà, Classi Astratte e Interfacce
-site_author: Prof
-site_url: https://tuonome.github.io/java-oop-wiki  # ← cambia con il tuo username
+site_author: Stefano Trevisi | Urbantwo
+site_url: https://urbantwo.github.io/java-oop-wiki-2 
 
 repo_name: java-oop-wiki
-repo_url: https://github.com/tuonome/java-oop-wiki  # ← cambia con il tuo username
+repo_url: https://github.com/urbantwo/java-oop-wiki-2  # ← cambia con il tuo username
 
 theme:
   name: material
   language: it
   palette:
-    - scheme: slate
-      primary: deep orange
-      accent: orange
-      toggle:
-        icon: material/brightness-4
-        name: Passa al tema chiaro
     - scheme: default
       primary: deep orange
       accent: orange
       toggle:
         icon: material/brightness-7
         name: Passa al tema scuro
+    - scheme: slate
+      primary: deep orange
+      accent: orange
+      toggle:
+        icon: material/brightness-4
+        name: Passa al tema chiaro
+
   font:
     text: DM Sans
     code: JetBrains Mono
