@@ -1,0 +1,88 @@
+site_name: OOP in Java | ITS Apulia Digital Foggia
+site_description: Ripasso guidato su Classi, Ereditarietà, Classi Astratte e Interfacce
+site_author: Prof
+site_url: https://tuonome.github.io/java-oop-wiki  # ← cambia con il tuo username
+
+repo_name: java-oop-wiki
+repo_url: https://github.com/tuonome/java-oop-wiki  # ← cambia con il tuo username
+
+theme:
+  name: material
+  language: it
+  palette:
+    - scheme: slate
+      primary: deep orange
+      accent: orange
+      toggle:
+        icon: material/brightness-4
+        name: Passa al tema chiaro
+    - scheme: default
+      primary: deep orange
+      accent: orange
+      toggle:
+        icon: material/brightness-7
+        name: Passa al tema scuro
+  font:
+    text: DM Sans
+    code: JetBrains Mono
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+    - toc.follow
+    - section.label
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search:
+      lang: it
+
+nav:
+  - Home: index.md
+  - "01 · Classi & Oggetti":
+      - Teoria: 01-classi/teoria.md
+      - Esempi: 01-classi/esempi.md
+  - "02 · Ereditarietà":
+      - Teoria: 02-ereditarieta/teoria.md
+      - Override & super: 02-ereditarieta/override.md
+  - "03 · Classi Astratte":
+      - Teoria: 03-astratte/teoria.md
+      - Quando usarle: 03-astratte/quando.md
+  - "04 · Interfacce":
+      - Teoria: 04-interfacce/teoria.md
+      - Abstract vs Interface: 04-interfacce/confronto.md
+      - Polimorfismo: 04-interfacce/polimorfismo.md
+  - "05 · Esercizi":
+      - Esercizio 1 – Classe base: 05-esercizi/ex1.md
+      - Esercizio 2 – Ereditarietà: 05-esercizi/ex2.md
+      - Esercizio 3 – Abstract + Interface: 05-esercizi/ex3.md
+  - Riepilogo: riepilogo.md
