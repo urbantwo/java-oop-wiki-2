@@ -57,13 +57,6 @@ OOP in Java
     Quando vuoi definire una **capacità** che può essere aggiunta a classi non correlate, o quando hai bisogno di ereditarietà multipla.
 
 
-!!! bug "Che cazzo hai combinato?"
-    quando il gioco si fa duro:
-
-    ```java
-    private String nome = "ciao";
-    ```
-
 ---
 
 ## Checklist finale
