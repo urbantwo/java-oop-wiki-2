@@ -62,6 +62,9 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - def_list
 
 plugins:
   - search:
@@ -86,4 +89,5 @@ nav:
       - Esercizio 1 – Classe base: 05-esercizi/ex1.md
       - Esercizio 2 – Ereditarietà: 05-esercizi/ex2.md
       - Esercizio 3 – Abstract + Interface: 05-esercizi/ex3.md
+      - Esercizio 4 : 05-esercizi/ex4.md
   - Riepilogo: riepilogo.md
