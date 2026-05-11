@@ -2,58 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://urbantwo.github.io/java-oop-wiki-2/</loc>
-         <lastmod>2026-05-10</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://urbantwo.github.io/java-oop-wiki-2/riepilogo/</loc>
-         <lastmod>2026-05-10</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://urbantwo.github.io/java-oop-wiki-2/01-classi/esempi/</loc>
-         <lastmod>2026-05-10</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://urbantwo.github.io/java-oop-wiki-2/01-classi/teoria/</loc>
-         <lastmod>2026-05-10</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://urbantwo.github.io/java-oop-wiki-2/02-ereditarieta/override/</loc>
-         <lastmod>2026-05-10</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://urbantwo.github.io/java-oop-wiki-2/02-ereditarieta/teoria/</loc>
-         <lastmod>2026-05-10</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://urbantwo.github.io/java-oop-wiki-2/03-astratte/quando/</loc>
-         <lastmod>2026-05-10</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://urbantwo.github.io/java-oop-wiki-2/03-astratte/teoria/</loc>
-         <lastmod>2026-05-10</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://urbantwo.github.io/java-oop-wiki-2/04-interfacce/confronto/</loc>
-         <lastmod>2026-05-10</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://urbantwo.github.io/java-oop-wiki-2/04-interfacce/polimorfismo/</loc>
-         <lastmod>2026-05-10</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://urbantwo.github.io/java-oop-wiki-2/04-interfacce/teoria/</loc>
-         <lastmod>2026-05-10</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://urbantwo.github.io/java-oop-wiki-2/05-esercizi/ex1/</loc>
-         <lastmod>2026-05-10</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://urbantwo.github.io/java-oop-wiki-2/05-esercizi/ex2/</loc>
-         <lastmod>2026-05-10</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://urbantwo.github.io/java-oop-wiki-2/05-esercizi/ex3/</loc>
-         <lastmod>2026-05-10</lastmod>
+         <lastmod>2026-05-11</lastmod>
+    </url>
+    <url>
+         <loc>https://urbantwo.github.io/java-oop-wiki-2/05-esercizi/ex4/</loc>
+         <lastmod>2026-05-11</lastmod>
     </url>
 </urlset>
