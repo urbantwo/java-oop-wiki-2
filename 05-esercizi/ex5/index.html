@@ -1,0 +1,2817 @@
+
+<!doctype html>
+<html lang="it" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Ripasso guidato su Classi, Ereditarietà, Classi Astratte e Interfacce">
+      
+      
+        <meta name="author" content="Stefano Trevisi | Urbantwo">
+      
+      
+        <link rel="canonical" href="https://urbantwo.github.io/java-oop-wiki-2/05-esercizi/ex5/">
+      
+      
+        <link rel="prev" href="../ex4/">
+      
+      
+        <link rel="next" href="../../riepilogo/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Esercizio 5 - OOP in Java | ITS Apulia Digital Foggia</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"DM Sans";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#esercizio-guidato-sistema-di-gestione-biblioteca" class="md-skip">
+          Vai al contenuto
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Intestazione">
+    <a href="../.." title="OOP in Java | ITS Apulia Digital Foggia" class="md-header__button md-logo" aria-label="OOP in Java | ITS Apulia Digital Foggia" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OOP in Java | ITS Apulia Digital Foggia
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Esercizio 5
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Passa al tema scuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passa al tema scuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Passa al tema chiaro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passa al tema chiaro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Cancella" aria-label="Cancella" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inizializza la ricerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/urbantwo/java-oop-wiki-2" title="Apri repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    java-oop-wiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigazione" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OOP in Java | ITS Apulia Digital Foggia" class="md-nav__button md-logo" aria-label="OOP in Java | ITS Apulia Digital Foggia" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OOP in Java | ITS Apulia Digital Foggia
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/urbantwo/java-oop-wiki-2" title="Apri repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    java-oop-wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Classi & Oggetti
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    01 · Classi & Oggetti
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-classi/teoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teoria
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-classi/esempi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Esempi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Ereditarietà
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    02 · Ereditarietà
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-ereditarieta/teoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teoria
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-ereditarieta/override/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Override & super
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Classi Astratte
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    03 · Classi Astratte
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-astratte/teoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teoria
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-astratte/quando/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quando usarle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Interfacce
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    04 · Interfacce
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-interfacce/teoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teoria
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-interfacce/confronto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Abstract vs Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-interfacce/polimorfismo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Polimorfismo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Esercizi
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    05 · Esercizi
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ex1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Esercizio 1 – Classe base
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ex2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Esercizio 2 – Ereditarietà
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ex3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Esercizio 3 – Abstract + Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ex4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Esercizio 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Esercizio 5
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Esercizio 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#panoramica-del-percorso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗺️ Panoramica del percorso
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-il-primo-libro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Il primo libro
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1 — Il primo libro">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concetti-coinvolti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concetti coinvolti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Compiti
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-il-catalogo-con-gli-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Il catalogo con gli Array
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2 — Il catalogo con gli Array">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concetti-coinvolti_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concetti coinvolti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiti_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Compiti
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-la-classe-libro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — La classe Libro
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3 — La classe Libro">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concetti-coinvolti_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concetti coinvolti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiti_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Compiti
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-categorizzare-con-enum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Categorizzare con enum
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4 — Categorizzare con enum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concetti-coinvolti_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concetti coinvolti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiti_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Compiti
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-la-classe-astratta-materialebiblioteca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — La classe astratta MaterialeBiblioteca
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5 — La classe astratta MaterialeBiblioteca">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concetti-coinvolti_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concetti coinvolti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiti_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Compiti
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-interfacce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6 — Interfacce
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 6 — Interfacce">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concetti-coinvolti_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concetti coinvolti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiti_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Compiti
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-il-sistema-completo-classe-biblioteca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7 — Il sistema completo: classe Biblioteca
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 7 — Il sistema completo: classe Biblioteca">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concetti-coinvolti_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concetti coinvolti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiti_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Compiti
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-per-chi-finisce-prima" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ Bonus — Per chi finisce prima
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criteri-di-valutazione" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Criteri di valutazione
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 Criteri di valutazione">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requisiti-trasversali" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requisiti trasversali
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../riepilogo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Riepilogo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#panoramica-del-percorso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗺️ Panoramica del percorso
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-il-primo-libro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Il primo libro
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1 — Il primo libro">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concetti-coinvolti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concetti coinvolti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Compiti
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-il-catalogo-con-gli-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Il catalogo con gli Array
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2 — Il catalogo con gli Array">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concetti-coinvolti_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concetti coinvolti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiti_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Compiti
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-la-classe-libro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — La classe Libro
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3 — La classe Libro">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concetti-coinvolti_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concetti coinvolti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiti_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Compiti
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-categorizzare-con-enum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Categorizzare con enum
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4 — Categorizzare con enum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concetti-coinvolti_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concetti coinvolti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiti_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Compiti
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-la-classe-astratta-materialebiblioteca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — La classe astratta MaterialeBiblioteca
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 5 — La classe astratta MaterialeBiblioteca">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concetti-coinvolti_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concetti coinvolti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiti_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Compiti
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-interfacce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6 — Interfacce
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 6 — Interfacce">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concetti-coinvolti_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concetti coinvolti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiti_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Compiti
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-il-sistema-completo-classe-biblioteca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7 — Il sistema completo: classe Biblioteca
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 7 — Il sistema completo: classe Biblioteca">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concetti-coinvolti_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concetti coinvolti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compiti_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Compiti
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-per-chi-finisce-prima" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ Bonus — Per chi finisce prima
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criteri-di-valutazione" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Criteri di valutazione
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 Criteri di valutazione">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requisiti-trasversali" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requisiti trasversali
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigazione" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../ex1/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    05 · Esercizi
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="esercizio-guidato-sistema-di-gestione-biblioteca">📚 Esercizio Guidato — Sistema di Gestione Biblioteca<a class="headerlink" href="#esercizio-guidato-sistema-di-gestione-biblioteca" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Obiettivo</p>
+<p>Costruirai un sistema di gestione per una biblioteca <strong>da zero</strong>, step dopo step.
+Ogni fase introduce un nuovo problema reale, e imparerai <strong>perché</strong> esistono certi strumenti Java — non solo come usarli.</p>
+<p><strong>Tempo stimato:</strong> 60–90 minuti<br />
+<strong>Modalità:</strong> esercizio guidato in aula</p>
+</div>
+<hr />
+<h2 id="panoramica-del-percorso">🗺️ Panoramica del percorso<a class="headerlink" href="#panoramica-del-percorso" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Argomento</th>
+<th>Cosa introduce</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Variabili e tipi</td>
+<td>Rappresentare un libro con dati</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Array</td>
+<td>Gestire più libri, e i loro limiti</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Classi e ArrayList</td>
+<td>Strutturare i dati, usare collections</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Enum</td>
+<td>Categorizzare con sicurezza</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Classe astratta</td>
+<td>Condividere struttura tra tipi diversi</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Interfacce</td>
+<td>Definire contratti e comportamenti</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Integrazione</td>
+<td>Un sistema funzionante completo</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="step-1-il-primo-libro">Step 1 — Il primo libro<a class="headerlink" href="#step-1-il-primo-libro" title="Permanent link">&para;</a></h2>
+<div class="admonition question">
+<p class="admonition-title">Il problema</p>
+<p>La biblioteca vuole tenere traccia di un libro. Come lo rappresentiamo nel codice?</p>
+</div>
+<h3 id="concetti-coinvolti">Concetti coinvolti<a class="headerlink" href="#concetti-coinvolti" title="Permanent link">&para;</a></h3>
+<p><code>variabili</code> · <code>tipi primitivi</code> · <code>String</code> · <code>boolean</code> · <code>System.out.println</code></p>
+<hr />
+<h3 id="compiti">📋 Compiti<a class="headerlink" href="#compiti" title="Permanent link">&para;</a></h3>
+<p><strong>1.1 — Dichiara le variabili</strong></p>
+<p>In una classe <code>Main</code>, dichiara le seguenti variabili per rappresentare un libro:</p>
+<table>
+<thead>
+<tr>
+<th>Variabile</th>
+<th>Tipo</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>titolo</code></td>
+<td><code>String</code></td>
+<td>Titolo del libro</td>
+</tr>
+<tr>
+<td><code>autore</code></td>
+<td><code>String</code></td>
+<td>Nome dell'autore</td>
+</tr>
+<tr>
+<td><code>isbn</code></td>
+<td><code>String</code></td>
+<td>Codice identificativo univoco</td>
+</tr>
+<tr>
+<td><code>annoPubblicazione</code></td>
+<td><code>int</code></td>
+<td>Anno di pubblicazione</td>
+</tr>
+<tr>
+<td><code>numeroPagine</code></td>
+<td><code>int</code></td>
+<td>Numero di pagine</td>
+</tr>
+<tr>
+<td><code>prezzo</code></td>
+<td><code>double</code></td>
+<td>Prezzo di copertina</td>
+</tr>
+<tr>
+<td><code>disponibile</code></td>
+<td><code>boolean</code></td>
+<td>Se è disponibile per il prestito</td>
+</tr>
+</tbody>
+</table>
+<p><strong>1.2 — Assegna i valori</strong></p>
+<p>Assegna questi valori al libro:</p>
+<ul>
+<li>Titolo: <code>"Il Nome della Rosa"</code></li>
+<li>Autore: <code>"Umberto Eco"</code></li>
+<li>ISBN: <code>"978-8845292613"</code></li>
+<li>Anno: <code>1980</code></li>
+<li>Pagine: <code>502</code></li>
+<li>Prezzo: <code>12.50</code></li>
+<li>Disponibile: <code>true</code></li>
+</ul>
+<p><strong>1.3 — Stampa la scheda</strong></p>
+<p>Stampa a console una scheda formattata così:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>=============================
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>📚 Il Nome della Rosa
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>   Autore: Umberto Eco
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>   ISBN:   978-8845292613
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>   Anno:   1980
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>   Pagine: 502
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>   Prezzo: €12.50
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>   Stato:  ✅ Disponibile
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>=============================
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Suggerimento</p>
+<p>Per <code>disponibile</code>, usa un operatore ternario per stampare <code>"✅ Disponibile"</code> oppure <code>"❌ Non disponibile"</code>:
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">String</span><span class="w"> </span><span class="n">stato</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">disponibile</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;✅ Disponibile&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;❌ Non disponibile&quot;</span><span class="p">;</span>
+</span></code></pre></div></p>
+</div>
+<p><strong>1.4 — Operazioni sui dati</strong></p>
+<ul>
+<li>Calcola e stampa quanti anni fa è stato pubblicato il libro (usa l'anno <code>2025</code>).</li>
+<li>Calcola il prezzo con IVA al 4% (libri: aliquota ridotta) e stampalo.</li>
+<li>Simula un prestito: imposta <code>disponibile = false</code> e ristampa lo stato.</li>
+</ul>
+<hr />
+<details class="success">
+<summary>Risultato atteso</summary>
+<p>Il programma stampa la scheda, poi mostra l'età del libro, il prezzo con IVA, e infine lo stato aggiornato a "Non disponibile".</p>
+</details>
+<hr />
+<h2 id="step-2-il-catalogo-con-gli-array">Step 2 — Il catalogo con gli Array<a class="headerlink" href="#step-2-il-catalogo-con-gli-array" title="Permanent link">&para;</a></h2>
+<div class="admonition question">
+<p class="admonition-title">Il problema</p>
+<p>Abbiamo un solo libro. Ma la biblioteca ne ha 500. Creare 500 variabili separate è impossibile → servono gli <strong>array</strong>.</p>
+</div>
+<h3 id="concetti-coinvolti_1">Concetti coinvolti<a class="headerlink" href="#concetti-coinvolti_1" title="Permanent link">&para;</a></h3>
+<p><code>array</code> · <code>ciclo for</code> · <code>for-each</code> · <code>Scanner</code> · <code>array paralleli e loro limiti</code></p>
+<hr />
+<h3 id="compiti_1">📋 Compiti<a class="headerlink" href="#compiti_1" title="Permanent link">&para;</a></h3>
+<p><strong>2.1 — Crea gli array del catalogo</strong></p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">titoli</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">autori</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span><span class="p">;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">isbn</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span><span class="p">;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kt">int</span><span class="o">[]</span><span class="w">    </span><span class="n">anni</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span><span class="p">;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kt">boolean</span><span class="o">[]</span><span class="w"> </span><span class="n">disponibili</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">boolean</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Riempi gli array con questi 5 libri:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Titolo</th>
+<th>Autore</th>
+<th>ISBN</th>
+<th>Anno</th>
+<th>Disponibile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Il Nome della Rosa</td>
+<td>Umberto Eco</td>
+<td>978-8845292613</td>
+<td>1980</td>
+<td>true</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1984</td>
+<td>George Orwell</td>
+<td>978-8804668237</td>
+<td>1949</td>
+<td>true</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Il Piccolo Principe</td>
+<td>Antoine de Saint-Exupéry</td>
+<td>978-8845292614</td>
+<td>1943</td>
+<td>false</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Harry Potter e la Pietra Filosofale</td>
+<td>J.K. Rowling</td>
+<td>978-8877827029</td>
+<td>1997</td>
+<td>true</td>
+</tr>
+<tr>
+<td>4</td>
+<td>La Divina Commedia</td>
+<td>Dante Alighieri</td>
+<td>978-8804123456</td>
+<td>1320</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2.2 — Stampa il catalogo</strong></p>
+<p>Con un ciclo <code>for</code> classico, stampa il catalogo numerato:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>CATALOGO BIBLIOTECA (5 libri)
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>───────────────────────────────────────
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>[1] Il Nome della Rosa — Umberto Eco          ✅
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>[2] 1984 — George Orwell                      ✅
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>[3] Il Piccolo Principe — A. de Saint-Exupéry ❌
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>...
+</span></code></pre></div>
+<p><strong>2.3 — Statistiche del catalogo</strong></p>
+<p>Scrivi un ciclo che calcoli e stampi:</p>
+<ul>
+<li>Totale libri nel catalogo</li>
+<li>Quanti sono disponibili</li>
+<li>Quanti non sono disponibili</li>
+<li>Percentuale di disponibilità</li>
+</ul>
+<p><strong>2.4 — Cerca per titolo</strong></p>
+<p>Chiedi all'utente di inserire un titolo (o parte di esso) tramite <code>Scanner</code>. Cerca negli array e stampa:</p>
+<ul>
+<li>Se trovato: posizione nel catalogo, autore, stato disponibilità</li>
+<li>Se non trovato: <code>"⚠️ Nessun libro trovato con questo titolo."</code></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Suggerimento ricerca</p>
+<p>Usa <code>titoli[i].toLowerCase().contains(query.toLowerCase())</code> per una ricerca case-insensitive e parziale.</p>
+</div>
+<p><strong>2.5 — Filtra i disponibili</strong></p>
+<p>Stampa solo i libri con <code>disponibili[i] == true</code>, usando un ciclo con condizione <code>if</code>.</p>
+<hr />
+<div class="admonition warning">
+<p class="admonition-title">Riflessione — I limiti degli array</p>
+<p>Prova a rispondere a queste domande (scrivile come commento nel codice):</p>
+<ul>
+<li>Cosa succede se vuoi aggiungere un <strong>sesto</strong> libro?</li>
+<li>Come fai a <strong>rimuovere</strong> un libro dal mezzo dell'array senza lasciare "buchi"?</li>
+<li>Se dimentichi di aggiornare uno degli array paralleli quando aggiungi un libro, cosa succede?</li>
+</ul>
+<p>👉 Questi problemi hanno una soluzione: le <strong>classi</strong> e le <strong>collections</strong>. È quello che faremo nel prossimo step.</p>
+</div>
+<hr />
+<h2 id="step-3-la-classe-libro">Step 3 — La classe <code>Libro</code><a class="headerlink" href="#step-3-la-classe-libro" title="Permanent link">&para;</a></h2>
+<div class="admonition question">
+<p class="admonition-title">Il problema</p>
+<p>Gli array paralleli sono fragili: titoli, autori e disponibilità sono collegati solo per <strong>posizione</strong>, ma niente lo garantisce nel codice. Se sbaglio un indice, il programma non dà errore ma produce dati sbagliati.</p>
+<p>Una <strong>classe</strong> raggruppa i dati correlati in un'unica struttura coerente.</p>
+</div>
+<h3 id="concetti-coinvolti_2">Concetti coinvolti<a class="headerlink" href="#concetti-coinvolti_2" title="Permanent link">&para;</a></h3>
+<p><code>class</code> · <code>costruttore</code> · <code>private</code> · <code>getter</code> · <code>setter</code> · <code>toString()</code> · <code>ArrayList</code> · <code>for-each</code></p>
+<hr />
+<h3 id="compiti_2">📋 Compiti<a class="headerlink" href="#compiti_2" title="Permanent link">&para;</a></h3>
+<p><strong>3.1 — Crea la classe <code>Libro</code></strong></p>
+<p>Crea un nuovo file <code>Libro.java</code>. La classe deve avere questi campi, tutti <code>private</code>:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Libro</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">titolo</span><span class="p">;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">autore</span><span class="p">;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">isbn</span><span class="p">;</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">annoPubblicazione</span><span class="p">;</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numeroPagine</span><span class="p">;</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">prezzo</span><span class="p">;</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">disponibile</span><span class="p">;</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">presaInCaricoDA</span><span class="p">;</span><span class="w"> </span><span class="c1">// chi ha il libro in prestito (null se disponibile)</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>3.2 — Costruttore</strong></p>
+<p>Aggiungi un costruttore che riceve tutti i parametri <strong>tranne</strong> <code>disponibile</code> e <code>presaInCaricoDA</code>:
+un libro appena aggiunto alla biblioteca è sempre disponibile, e nessuno lo ha in prestito.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">public</span><span class="w"> </span><span class="nf">Libro</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">titolo</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">autore</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">isbn</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">annoPubblicazione</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numeroPagine</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">prezzo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="c1">// ...</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">disponibile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">presaInCaricoDA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>3.3 — Getter e Setter</strong></p>
+<p>Aggiungi i getter per tutti i campi. Per i setter, rifletti su questi:</p>
+<ul>
+<li><code>setTitolo()</code> — ha senso? Il titolo di un libro cambia mai?</li>
+<li><code>setDisponibile()</code> — ha senso? O meglio creare metodi più specifici?</li>
+<li><code>setIsbn()</code> — ha senso? L'ISBN è un identificatore univoco permanente.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Buona pratica</p>
+<p>Invece di un generico <code>setDisponibile(boolean)</code>, crea due metodi con nomi più significativi:
+<div class="language-java highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">prendiInPrestito</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">nomeUtente</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">restituisci</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+Il codice diventa più leggibile: si capisce l'<strong>intenzione</strong>, non solo l'operazione.</p>
+</div>
+<p><strong>3.4 — Metodo <code>prendiInPrestito(String nomeUtente)</code></strong></p>
+<p>Implementa la logica di prestito:</p>
+<ul>
+<li>Se il libro <strong>non è disponibile</strong>: stampa un messaggio di errore e non fare nulla</li>
+<li>Se il libro <strong>è disponibile</strong>: segna come non disponibile, salva il nome dell'utente</li>
+</ul>
+<p><strong>3.5 — Metodo <code>restituisci()</code></strong></p>
+<ul>
+<li>Segna il libro come disponibile</li>
+<li>Azzera <code>presaInCaricoDA</code></li>
+<li>Stampa un messaggio di conferma</li>
+</ul>
+<p><strong>3.6 — Override di <code>toString()</code></strong></p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nd">@Override</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="c1">// restituisce una stringa formattata con tutte le info del libro</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Deve produrre qualcosa del tipo:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>📚 &quot;Il Nome della Rosa&quot; — Umberto Eco (1980)
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>   ISBN: 978-8845292613 | 502 pag. | €12.50
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>   Stato: ✅ Disponibile
+</span></code></pre></div></p>
+<p><strong>3.7 — Metodo <code>getEtaLibro()</code></strong></p>
+<p>Aggiungi un metodo che calcola e restituisce quanti anni ha il libro.</p>
+<p><strong>3.8 — Sostituisci gli array con <code>ArrayList&lt;Libro&gt;</code></strong></p>
+<p>Nel <code>Main</code>, crea un <code>ArrayList&lt;Libro&gt;</code>, aggiungi i 5 libri dello Step 2 e stampa il catalogo con un for-each chiamando <code>toString()</code> su ogni libro.</p>
+<p><strong>3.9 — Ricerca e filtraggio</strong></p>
+<p>Riscrivi la ricerca dello Step 2 usando la lista di oggetti <code>Libro</code>.
+Aggiungi anche:</p>
+<ul>
+<li>Un metodo <code>cercaPerIsbn(String isbn)</code> che restituisce il libro trovato (o <code>null</code>)</li>
+<li>Un metodo <code>filtraDisponibili()</code> che stampa solo i libri disponibili</li>
+</ul>
+<hr />
+<details class="example">
+<summary>Come usare ArrayList</summary>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Libro</span><span class="o">&gt;</span><span class="w"> </span><span class="n">catalogo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">catalogo</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Libro</span><span class="p">(</span><span class="s">&quot;Il Nome della Rosa&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Umberto Eco&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;978-...&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1980</span><span class="p">,</span><span class="w"> </span><span class="mi">502</span><span class="p">,</span><span class="w"> </span><span class="mf">12.50</span><span class="p">));</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Libro</span><span class="w"> </span><span class="n">libro</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">catalogo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">libro</span><span class="p">);</span><span class="w"> </span><span class="c1">// chiama toString() automaticamente</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="p">}</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Totale libri: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">catalogo</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+</span></code></pre></div>
+</details>
+<hr />
+<h2 id="step-4-categorizzare-con-enum">Step 4 — Categorizzare con <code>enum</code><a class="headerlink" href="#step-4-categorizzare-con-enum" title="Permanent link">&para;</a></h2>
+<div class="admonition question">
+<p class="admonition-title">Il problema</p>
+<p>La biblioteca non ha solo libri: ci sono anche riviste e DVD. Come distinguiamo i tipi di materiale in modo <strong>sicuro</strong> e <strong>leggibile</strong>?</p>
+<p>Con una <code>String</code> potremmo scrivere <code>"libro"</code>, <code>"Libro"</code>, <code>"LIBRO"</code>, <code>"libros"</code> — tutti diversi, tutti sbagliati silenziosamente.
+Con un <code>int</code> (0 = libro, 1 = rivista...) il codice diventa incomprensibile.</p>
+<p>→ L'<strong>enum</strong> definisce un insieme chiuso di valori validi.</p>
+</div>
+<h3 id="concetti-coinvolti_3">Concetti coinvolti<a class="headerlink" href="#concetti-coinvolti_3" title="Permanent link">&para;</a></h3>
+<p><code>enum</code> · <code>campi nell'enum</code> · <code>costruttore enum</code> · <code>metodi nell'enum</code> · <code>switch</code></p>
+<hr />
+<h3 id="compiti_3">📋 Compiti<a class="headerlink" href="#compiti_3" title="Permanent link">&para;</a></h3>
+<p><strong>4.1 — Crea l'enum <code>TipoMateriale</code></strong></p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">TipoMateriale</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="n">LIBRO</span><span class="p">,</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="n">RIVISTA</span><span class="p">,</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="n">DVD</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>4.2 — Aggiungi campi e costruttore</strong></p>
+<p>Ogni tipo ha una descrizione leggibile e un numero massimo di giorni di prestito:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">TipoMateriale</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="n">LIBRO</span><span class="p">(</span><span class="s">&quot;Libro cartaceo&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">),</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="n">RIVISTA</span><span class="p">(</span><span class="s">&quot;Rivista periodica&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">),</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="n">DVD</span><span class="p">(</span><span class="s">&quot;Disco video digitale&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">);</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">descrizione</span><span class="p">;</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">giorniPrestito</span><span class="p">;</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="n">TipoMateriale</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">descrizione</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">giorniPrestito</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">descrizione</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">descrizione</span><span class="p">;</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">giorniPrestito</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">giorniPrestito</span><span class="p">;</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getDescrizione</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">descrizione</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getGiorniPrestito</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">giorniPrestito</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>4.3 — Aggiungi un metodo all'enum</strong></p>
+<p>Aggiungi il metodo <code>String getIcona()</code> che restituisce:</p>
+<ul>
+<li><code>"📚"</code> per LIBRO</li>
+<li><code>"📰"</code> per RIVISTA</li>
+<li><code>"💿"</code> per DVD</li>
+</ul>
+<p>Usa uno <code>switch</code> dentro l'enum.</p>
+<p><strong>4.4 — Aggiungi <code>TipoMateriale</code> alla classe <code>Libro</code></strong></p>
+<ul>
+<li>Aggiungi il campo <code>private TipoMateriale tipo;</code> alla classe <code>Libro</code></li>
+<li>Aggiornare il costruttore per riceverlo</li>
+<li>Aggiorna <code>toString()</code> per mostrare tipo e icona</li>
+</ul>
+<p><strong>4.5 — Usa le informazioni del tipo</strong></p>
+<p>Aggiorna <code>prendiInPrestito()</code> per stampare la data di scadenza del prestito:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>✅ &quot;Il Nome della Rosa&quot; preso in prestito da Mario Rossi
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>   Scadenza: entro 30 giorni (tipo: Libro cartaceo)
+</span></code></pre></div>
+<p><strong>4.6 — Statistiche per tipo</strong></p>
+<p>Scrivi un metodo che conti quanti materiali ci sono per ogni tipo e stampi:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>📊 Statistiche catalogo:
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>   📚 Libri:   3
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>   📰 Riviste: 1
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>   💿 DVD:     2
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Iterare sui valori di un enum</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">TipoMateriale</span><span class="w"> </span><span class="n">tipo</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">TipoMateriale</span><span class="p">.</span><span class="na">values</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="c1">// tipo assume LIBRO, poi RIVISTA, poi DVD</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<hr />
+<h2 id="step-5-la-classe-astratta-materialebiblioteca">Step 5 — La classe astratta <code>MaterialeBiblioteca</code><a class="headerlink" href="#step-5-la-classe-astratta-materialebiblioteca" title="Permanent link">&para;</a></h2>
+<div class="admonition question">
+<p class="admonition-title">Il problema</p>
+<p>Adesso vogliamo aggiungere <code>Dvd</code> e <code>Rivista</code> come classi separate, perché hanno campi diversi (un DVD ha <code>regia</code> e <code>durata</code>, una rivista ha <code>numeroEdizione</code>).</p>
+<p>Ma tutti i materiali condividono: titolo, disponibilità, tipo, la logica di prestito...</p>
+<p>Duplicare tutto questo codice in ogni classe è un errore: se domani cambia la logica del prestito, dobbiamo aggiornare 3 classi invece di 1.</p>
+<p>→ La <strong>classe astratta</strong> contiene la parte comune, e lascia ai figli solo ciò che è specifico.</p>
+</div>
+<h3 id="concetti-coinvolti_4">Concetti coinvolti<a class="headerlink" href="#concetti-coinvolti_4" title="Permanent link">&para;</a></h3>
+<p><code>abstract class</code> · <code>extends</code> · <code>metodo astratto</code> · <code>super()</code> · <code>@Override</code> · <code>polimorfismo</code></p>
+<hr />
+<h3 id="compiti_4">📋 Compiti<a class="headerlink" href="#compiti_4" title="Permanent link">&para;</a></h3>
+<p><strong>5.1 — Crea la classe astratta <code>MaterialeBiblioteca</code></strong></p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MaterialeBiblioteca</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">titolo</span><span class="p">;</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">TipoMateriale</span><span class="w"> </span><span class="n">tipo</span><span class="p">;</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">disponibile</span><span class="p">;</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">presaInCaricoDA</span><span class="p">;</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">MaterialeBiblioteca</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">titolo</span><span class="p">,</span><span class="w"> </span><span class="n">TipoMateriale</span><span class="w"> </span><span class="n">tipo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">titolo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">titolo</span><span class="p">;</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">tipo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tipo</span><span class="p">;</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">disponibile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">presaInCaricoDA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">    </span><span class="c1">// Metodo astratto: ogni sottoclasse lo implementa a modo suo</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getScheda</span><span class="p">();</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">    </span><span class="c1">// Metodo concreto: la logica di prestito è uguale per tutti</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">prendiInPrestito</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">nomeUtente</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">disponibile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;❌ Materiale non disponibile (in prestito a: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">presaInCaricoDA</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">);</span>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="w">        </span><span class="n">disponibile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="w">        </span><span class="n">presaInCaricoDA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nomeUtente</span><span class="p">;</span>
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;✅ \&quot;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">titolo</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\&quot; preso in prestito da &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nomeUtente</span>
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; — scadenza: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tipo</span><span class="p">.</span><span class="na">getGiorniPrestito</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; giorni&quot;</span><span class="p">);</span>
+</span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-15-30"><a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a>
+</span><span id="__span-15-31"><a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">restituisci</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-32"><a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;↩️  \&quot;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">titolo</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\&quot; restituito da &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">presaInCaricoDA</span><span class="p">);</span>
+</span><span id="__span-15-33"><a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a><span class="w">        </span><span class="n">disponibile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</span><span id="__span-15-34"><a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a><span class="w">        </span><span class="n">presaInCaricoDA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+</span><span id="__span-15-35"><a id="__codelineno-15-35" name="__codelineno-15-35" href="#__codelineno-15-35"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-15-36"><a id="__codelineno-15-36" name="__codelineno-15-36" href="#__codelineno-15-36"></a>
+</span><span id="__span-15-37"><a id="__codelineno-15-37" name="__codelineno-15-37" href="#__codelineno-15-37"></a><span class="w">    </span><span class="c1">// getter</span>
+</span><span id="__span-15-38"><a id="__codelineno-15-38" name="__codelineno-15-38" href="#__codelineno-15-38"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getTitolo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">titolo</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-15-39"><a id="__codelineno-15-39" name="__codelineno-15-39" href="#__codelineno-15-39"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">TipoMateriale</span><span class="w"> </span><span class="nf">getTipo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">tipo</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-15-40"><a id="__codelineno-15-40" name="__codelineno-15-40" href="#__codelineno-15-40"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isDisponibile</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">disponibile</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-15-41"><a id="__codelineno-15-41" name="__codelineno-15-41" href="#__codelineno-15-41"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getPresaInCaricoDA</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">presaInCaricoDA</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-15-42"><a id="__codelineno-15-42" name="__codelineno-15-42" href="#__codelineno-15-42"></a>
+</span><span id="__span-15-43"><a id="__codelineno-15-43" name="__codelineno-15-43" href="#__codelineno-15-43"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-15-44"><a id="__codelineno-15-44" name="__codelineno-15-44" href="#__codelineno-15-44"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-45"><a id="__codelineno-15-45" name="__codelineno-15-45" href="#__codelineno-15-45"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">getScheda</span><span class="p">();</span>
+</span><span id="__span-15-46"><a id="__codelineno-15-46" name="__codelineno-15-46" href="#__codelineno-15-46"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-15-47"><a id="__codelineno-15-47" name="__codelineno-15-47" href="#__codelineno-15-47"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>5.2 — Fai estendere <code>Libro</code> da <code>MaterialeBiblioteca</code></strong></p>
+<p><code>Libro</code> ora <strong>estende</strong> <code>MaterialeBiblioteca</code>. Mantiene i suoi campi specifici (<code>autore</code>, <code>isbn</code>, <code>numeroPagine</code>, <code>prezzo</code>) ma non riduplica quelli comuni.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Libro</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">MaterialeBiblioteca</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">autore</span><span class="p">;</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">isbn</span><span class="p">;</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numeroPagine</span><span class="p">;</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">prezzo</span><span class="p">;</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Libro</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">titolo</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">autore</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">isbn</span><span class="p">,</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">                 </span><span class="kt">int</span><span class="w"> </span><span class="n">annoPubblicazione</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numeroPagine</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">prezzo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">titolo</span><span class="p">,</span><span class="w"> </span><span class="n">TipoMateriale</span><span class="p">.</span><span class="na">LIBRO</span><span class="p">);</span><span class="w"> </span><span class="c1">// chiama il costruttore della classe madre</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">autore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">autore</span><span class="p">;</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">isbn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isbn</span><span class="p">;</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">numeroPagine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numeroPagine</span><span class="p">;</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">prezzo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prezzo</span><span class="p">;</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getScheda</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">getTipo</span><span class="p">().</span><span class="na">getIcona</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; \&quot;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">getTitolo</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\&quot; — &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">autore</span>
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\n   ISBN: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">isbn</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; | &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numeroPagine</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; pag. | €&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">prezzo</span>
+</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\n   Stato: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">isDisponibile</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;✅ Disponibile&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;❌ In prestito a &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">getPresaInCaricoDA</span><span class="p">());</span>
+</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>
+</span><span id="__span-16-24"><a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a><span class="w">    </span><span class="c1">// getter specifici</span>
+</span><span id="__span-16-25"><a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getAutore</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">autore</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-16-26"><a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getIsbn</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">isbn</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-16-27"><a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getNumeroPagine</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">numeroPagine</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-16-28"><a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getPrezzo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">prezzo</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-16-29"><a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>5.3 — Crea la classe <code>Dvd</code></strong></p>
+<p>La classe <code>Dvd</code> estende <code>MaterialeBiblioteca</code> e aggiunge:</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>regia</code></td>
+<td><code>String</code></td>
+<td>Nome del regista</td>
+</tr>
+<tr>
+<td><code>durataminuti</code></td>
+<td><code>int</code></td>
+<td>Durata in minuti</td>
+</tr>
+<tr>
+<td><code>annoProduzione</code></td>
+<td><code>int</code></td>
+<td>Anno di produzione</td>
+</tr>
+</tbody>
+</table>
+<p>Implementa <code>getScheda()</code> in modo appropriato:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>💿 &quot;Parasite&quot; — regia di Bong Joon-ho (2019)
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>   Durata: 132 min
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>   Stato: ✅ Disponibile
+</span></code></pre></div>
+<p><strong>5.4 — Crea la classe <code>Rivista</code></strong></p>
+<p>La classe <code>Rivista</code> estende <code>MaterialeBiblioteca</code> e aggiunge:</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>editore</code></td>
+<td><code>String</code></td>
+<td>Casa editrice</td>
+</tr>
+<tr>
+<td><code>numeroEdizione</code></td>
+<td><code>int</code></td>
+<td>Numero dell'edizione</td>
+</tr>
+<tr>
+<td><code>meseAnno</code></td>
+<td><code>String</code></td>
+<td>Es. "Marzo 2025"</td>
+</tr>
+</tbody>
+</table>
+<p><strong>5.5 — Il potere del polimorfismo</strong></p>
+<p>Nel <code>Main</code>, crea un <code>ArrayList&lt;MaterialeBiblioteca&gt;</code> che contiene libri, DVD e riviste insieme.
+Stampa tutto il catalogo con un unico for-each:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">MaterialeBiblioteca</span><span class="o">&gt;</span><span class="w"> </span><span class="n">catalogo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">catalogo</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Libro</span><span class="p">(...));</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">catalogo</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Dvd</span><span class="p">(...));</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="n">catalogo</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Rivista</span><span class="p">(...));</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">MaterialeBiblioteca</span><span class="w"> </span><span class="n">materiale</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">catalogo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">materiale</span><span class="p">.</span><span class="na">getScheda</span><span class="p">());</span><span class="w"> </span><span class="c1">// polimorfismo!</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;---&quot;</span><span class="p">);</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Domanda di riflessione</p>
+<p>Perché <code>getScheda()</code> è <strong>astratto</strong> in <code>MaterialeBiblioteca</code> e non ha un'implementazione di default?
+Cosa succederebbe se provassi a creare un oggetto <code>new MaterialeBiblioteca(...)</code> direttamente?</p>
+</div>
+<hr />
+<h2 id="step-6-interfacce">Step 6 — Interfacce<a class="headerlink" href="#step-6-interfacce" title="Permanent link">&para;</a></h2>
+<div class="admonition question">
+<p class="admonition-title">Il problema</p>
+<p>Abbiamo la logica di prestito nella classe astratta. Ma cosa succede se in futuro vogliamo aggiungere materiali che <strong>non si prestano</strong> (es. enciclopedie di consultazione in sede)?
+O materiali che si <strong>ricercano</strong> in modi diversi?</p>
+<p>Le interfacce definiscono <strong>capacità</strong> (cosa sa fare un oggetto) separate dall'<strong>identità</strong> (cosa è un oggetto).
+Una classe può implementare più interfacce → può avere più capacità.</p>
+</div>
+<h3 id="concetti-coinvolti_5">Concetti coinvolti<a class="headerlink" href="#concetti-coinvolti_5" title="Permanent link">&para;</a></h3>
+<p><code>interface</code> · <code>implements</code> · <code>default method</code> · <code>instanceof</code> · tipo come contratto</p>
+<hr />
+<h3 id="compiti_5">📋 Compiti<a class="headerlink" href="#compiti_5" title="Permanent link">&para;</a></h3>
+<p><strong>6.1 — Interfaccia <code>Ricercabile</code></strong></p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Ricercabile</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">    </span><span class="cm">/**</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="cm">     * Restituisce true se questo materiale corrisponde alla query di ricerca.</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="cm">     * La ricerca deve essere case-insensitive e parziale.</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="cm">     */</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">corrispondeA</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">query</span><span class="p">);</span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">    </span><span class="cm">/**</span>
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="cm">     * Restituisce le parole chiave associate al materiale (per la ricerca avanzata).</span>
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="cm">     */</span>
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="w">    </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="nf">getParoleChiave</span><span class="p">();</span>
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Implementa <code>Ricercabile</code> in tutte e tre le classi (<code>Libro</code>, <code>Dvd</code>, <code>Rivista</code>):</p>
+<ul>
+<li><code>Libro</code>: cerca per titolo, autore, ISBN</li>
+<li><code>Dvd</code>: cerca per titolo, regia</li>
+<li><code>Rivista</code>: cerca per titolo, editore, meseAnno</li>
+</ul>
+<p><strong>6.2 — Interfaccia <code>Stampabile</code></strong></p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Stampabile</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">stampaScheda</span><span class="p">();</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="c1">// default method: implementazione di default, le classi possono sovrascriverla</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">stampaSeparatore</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;─&quot;</span><span class="p">.</span><span class="na">repeat</span><span class="p">(</span><span class="mi">50</span><span class="p">));</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Implementa <code>Stampabile</code> in tutte le classi. Il metodo <code>stampaScheda()</code> deve stampare <code>getScheda()</code> con separatori.</p>
+<p><strong>6.3 — Aggiorna le dichiarazioni di classe</strong></p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Libro</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">MaterialeBiblioteca</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Ricercabile</span><span class="p">,</span><span class="w"> </span><span class="n">Stampabile</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">    </span><span class="c1">// ...</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>6.4 — Metodo di ricerca nel catalogo</strong></p>
+<p>Scrivi un metodo <code>cerca(ArrayList&lt;MaterialeBiblioteca&gt; catalogo, String query)</code> che:</p>
+<ol>
+<li>Itera sul catalogo</li>
+<li>Per ogni elemento, verifica se implementa <code>Ricercabile</code> (con <code>instanceof</code>)</li>
+<li>Se sì, chiama <code>corrispondeA(query)</code></li>
+<li>Raccoglie e restituisce i risultati in una nuova lista</li>
+</ol>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">MaterialeBiblioteca</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">cerca</span><span class="p">(</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">        </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">MaterialeBiblioteca</span><span class="o">&gt;</span><span class="w"> </span><span class="n">catalogo</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">query</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">    </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">MaterialeBiblioteca</span><span class="o">&gt;</span><span class="w"> </span><span class="n">risultati</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">MaterialeBiblioteca</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">catalogo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">Ricercabile</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">            </span><span class="n">Ricercabile</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Ricercabile</span><span class="p">)</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="na">corrispondeA</span><span class="p">(</span><span class="n">query</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="w">                </span><span class="n">risultati</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>
+</span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">risultati</span><span class="p">;</span>
+</span><span id="__span-22-16"><a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>6.5 — Usa <code>Stampabile</code> per la stampa</strong></p>
+<p>Scrivi un metodo <code>stampaCatalogo(ArrayList&lt;MaterialeBiblioteca&gt; catalogo)</code> che:</p>
+<ul>
+<li>Stampa un'intestazione con il totale</li>
+<li>Per ogni elemento che implementa <code>Stampabile</code>, chiama <code>stampaScheda()</code> e <code>stampaSeparatore()</code></li>
+</ul>
+<p><strong>6.6 — Domanda di riflessione</strong></p>
+<div class="admonition question">
+<p class="admonition-title">Interfaccia vs Classe Astratta</p>
+<p>Discuti con il docente:</p>
+<ul>
+<li><code>MaterialeBiblioteca</code> è una classe <strong>astratta</strong>: perché non un'interfaccia?</li>
+<li><code>Ricercabile</code> è un'<strong>interfaccia</strong>: perché non una classe astratta?</li>
+<li>Cosa cambierebbe se <code>prendiInPrestito()</code> fosse in un'interfaccia?</li>
+</ul>
+</div>
+<hr />
+<h2 id="step-7-il-sistema-completo-classe-biblioteca">Step 7 — Il sistema completo: classe <code>Biblioteca</code><a class="headerlink" href="#step-7-il-sistema-completo-classe-biblioteca" title="Permanent link">&para;</a></h2>
+<div class="admonition question">
+<p class="admonition-title">Il problema</p>
+<p>Tutti i pezzi ci sono. È ora di assemblarli in un sistema coerente con una classe che gestisce l'intera biblioteca.</p>
+</div>
+<h3 id="concetti-coinvolti_6">Concetti coinvolti<a class="headerlink" href="#concetti-coinvolti_6" title="Permanent link">&para;</a></h3>
+<p><code>HashMap</code> · <code>ArrayList</code> · <code>metodi di istanza</code> · progettazione OOP · <code>main</code> completo</p>
+<hr />
+<h3 id="compiti_6">📋 Compiti<a class="headerlink" href="#compiti_6" title="Permanent link">&para;</a></h3>
+<p><strong>7.1 — Crea la classe <code>Biblioteca</code></strong></p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Biblioteca</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">nome</span><span class="p">;</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">MaterialeBiblioteca</span><span class="o">&gt;</span><span class="w"> </span><span class="n">catalogo</span><span class="p">;</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">MaterialeBiblioteca</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">prestitiPerUtente</span><span class="p">;</span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Biblioteca</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">nome</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">nome</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nome</span><span class="p">;</span>
+</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">catalogo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">prestitiPerUtente</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-23-15"><a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>7.2 — Metodo <code>aggiungiMateriale()</code></strong></p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">aggiungiMateriale</span><span class="p">(</span><span class="n">MaterialeBiblioteca</span><span class="w"> </span><span class="n">materiale</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">    </span><span class="n">catalogo</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">materiale</span><span class="p">);</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;➕ Aggiunto: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">materiale</span><span class="p">.</span><span class="na">getTitolo</span><span class="p">());</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>7.3 — Metodo <code>stampaCatalogo()</code></strong></p>
+<p>Stampa tutto il catalogo con intestazione, totale e divisori tra un materiale e l'altro. Usa <code>getScheda()</code>.</p>
+<p><strong>7.4 — Metodo <code>cerca(String query)</code></strong></p>
+<p>Usa la logica dell'interfaccia <code>Ricercabile</code> sviluppata nello Step 6. Stampa i risultati o un messaggio se non trovati.</p>
+<p><strong>7.5 — Metodo <code>prestaMateriale(String isbn, String nomeUtente)</code></strong></p>
+<ul>
+<li>Cerca il materiale per ISBN nel catalogo</li>
+<li>Se non trovato: messaggio di errore</li>
+<li>Se trovato: chiama <code>prendiInPrestito(nomeUtente)</code></li>
+<li>Aggiorna la <code>HashMap</code> dei prestiti per utente:<ul>
+<li>Se l'utente non ha ancora prestiti, crea una nuova lista</li>
+<li>Aggiungi il materiale alla lista dell'utente</li>
+</ul>
+</li>
+</ul>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">prestaMateriale</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">isbn</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">nomeUtente</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">    </span><span class="c1">// trova il materiale</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">    </span><span class="n">MaterialeBiblioteca</span><span class="w"> </span><span class="n">trovato</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">MaterialeBiblioteca</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">catalogo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">Libro</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">((</span><span class="n">Libro</span><span class="p">)</span><span class="w"> </span><span class="n">m</span><span class="p">).</span><span class="na">getIsbn</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="n">isbn</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">            </span><span class="n">trovato</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="w">            </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>
+</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">trovato</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;⚠️ Materiale con ISBN &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">isbn</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; non trovato.&quot;</span><span class="p">);</span>
+</span><span id="__span-25-13"><a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-25-14"><a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-25-15"><a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a>
+</span><span id="__span-25-16"><a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a><span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">successo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">trovato</span><span class="p">.</span><span class="na">prendiInPrestito</span><span class="p">(</span><span class="n">nomeUtente</span><span class="p">);</span>
+</span><span id="__span-25-17"><a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a>
+</span><span id="__span-25-18"><a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">successo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-19"><a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a><span class="w">        </span><span class="n">prestitiPerUtente</span><span class="p">.</span><span class="na">putIfAbsent</span><span class="p">(</span><span class="n">nomeUtente</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">());</span>
+</span><span id="__span-25-20"><a id="__codelineno-25-20" name="__codelineno-25-20" href="#__codelineno-25-20"></a><span class="w">        </span><span class="n">prestitiPerUtente</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">nomeUtente</span><span class="p">).</span><span class="na">add</span><span class="p">(</span><span class="n">trovato</span><span class="p">);</span>
+</span><span id="__span-25-21"><a id="__codelineno-25-21" name="__codelineno-25-21" href="#__codelineno-25-21"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-25-22"><a id="__codelineno-25-22" name="__codelineno-25-22" href="#__codelineno-25-22"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>7.6 — Metodo <code>riceviRestituzione(String isbn)</code></strong></p>
+<ul>
+<li>Trova il materiale per ISBN</li>
+<li>Chiama <code>restituisci()</code></li>
+<li>Rimuovi il materiale dalla lista prestiti dell'utente nella HashMap</li>
+</ul>
+<p><strong>7.7 — Metodo <code>stampaStatistiche()</code></strong></p>
+<p>Stampa un report completo:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>╔══════════════════════════════════════╗
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>║    📊 STATISTICHE — Biblioteca X     ║
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>╠══════════════════════════════════════╣
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>║  Totale materiali:  8                ║
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>║  Disponibili:       5  (62.5%)       ║
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>║  In prestito:       3  (37.5%)       ║
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>╠══════════════════════════════════════╣
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>║  Per tipo:                           ║
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>║    📚 Libri:        4                ║
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>║    📰 Riviste:      2                ║
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>║    💿 DVD:          2                ║
+</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>╠══════════════════════════════════════╣
+</span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a>║  Utenti con prestiti attivi:   2     ║
+</span><span id="__span-26-14"><a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a>║    • Mario Rossi     → 2 materiali   ║
+</span><span id="__span-26-15"><a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a>║    • Anna Bianchi    → 1 materiale   ║
+</span><span id="__span-26-16"><a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a>╚══════════════════════════════════════╝
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Iterare su una HashMap</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">utente</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">prestitiPerUtente</span><span class="p">.</span><span class="na">keySet</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">    </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">MaterialeBiblioteca</span><span class="o">&gt;</span><span class="w"> </span><span class="n">prestiti</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prestitiPerUtente</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">utente</span><span class="p">);</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;• &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">utente</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; → &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">prestiti</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; materiali&quot;</span><span class="p">);</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<p><strong>7.8 — Metodo <code>getMaterialeUtente(String nomeUtente)</code></strong></p>
+<p>Restituisce la lista di materiali attualmente in prestito a un utente (o una lista vuota se non ne ha).</p>
+<p><strong>7.9 — Il <code>main</code> completo</strong></p>
+<p>Scrivi una sessione simulata che dimostri tutto il sistema:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">    </span><span class="n">Biblioteca</span><span class="w"> </span><span class="n">biblioteca</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Biblioteca</span><span class="p">(</span><span class="s">&quot;Biblioteca Civica di Milano&quot;</span><span class="p">);</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="w">    </span><span class="c1">// 1. Aggiungi materiali</span>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="w">    </span><span class="n">biblioteca</span><span class="p">.</span><span class="na">aggiungiMateriale</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Libro</span><span class="p">(</span><span class="s">&quot;Il Nome della Rosa&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Umberto Eco&quot;</span><span class="p">,</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="w">        </span><span class="s">&quot;978-8845292613&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1980</span><span class="p">,</span><span class="w"> </span><span class="mi">502</span><span class="p">,</span><span class="w"> </span><span class="mf">12.50</span><span class="p">));</span>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="w">    </span><span class="n">biblioteca</span><span class="p">.</span><span class="na">aggiungiMateriale</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Libro</span><span class="p">(</span><span class="s">&quot;1984&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;George Orwell&quot;</span><span class="p">,</span>
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="w">        </span><span class="s">&quot;978-8804668237&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1949</span><span class="p">,</span><span class="w"> </span><span class="mi">328</span><span class="p">,</span><span class="w"> </span><span class="mf">9.90</span><span class="p">));</span>
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="w">    </span><span class="n">biblioteca</span><span class="p">.</span><span class="na">aggiungiMateriale</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Dvd</span><span class="p">(</span><span class="s">&quot;Parasite&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Bong Joon-ho&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">132</span><span class="p">,</span><span class="w"> </span><span class="mi">2019</span><span class="p">));</span>
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a><span class="w">    </span><span class="n">biblioteca</span><span class="p">.</span><span class="na">aggiungiMateriale</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Rivista</span><span class="p">(</span><span class="s">&quot;Le Scienze&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Springer Nature&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">420</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Aprile 2025&quot;</span><span class="p">));</span>
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a><span class="w">    </span><span class="c1">// aggiungi altri 2 a piacere</span>
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a><span class="w">    </span><span class="c1">// 2. Stampa il catalogo iniziale</span>
+</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;=&quot;</span><span class="p">.</span><span class="na">repeat</span><span class="p">(</span><span class="mi">50</span><span class="p">));</span>
+</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a><span class="w">    </span><span class="n">biblioteca</span><span class="p">.</span><span class="na">stampaCatalogo</span><span class="p">();</span>
+</span><span id="__span-28-17"><a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a>
+</span><span id="__span-28-18"><a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a><span class="w">    </span><span class="c1">// 3. Esegui prestiti</span>
+</span><span id="__span-28-19"><a id="__codelineno-28-19" name="__codelineno-28-19" href="#__codelineno-28-19"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n--- PRESTITI ---&quot;</span><span class="p">);</span>
+</span><span id="__span-28-20"><a id="__codelineno-28-20" name="__codelineno-28-20" href="#__codelineno-28-20"></a><span class="w">    </span><span class="n">biblioteca</span><span class="p">.</span><span class="na">prestaMateriale</span><span class="p">(</span><span class="s">&quot;978-8845292613&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Mario Rossi&quot;</span><span class="p">);</span>
+</span><span id="__span-28-21"><a id="__codelineno-28-21" name="__codelineno-28-21" href="#__codelineno-28-21"></a><span class="w">    </span><span class="n">biblioteca</span><span class="p">.</span><span class="na">prestaMateriale</span><span class="p">(</span><span class="s">&quot;978-8804668237&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Mario Rossi&quot;</span><span class="p">);</span>
+</span><span id="__span-28-22"><a id="__codelineno-28-22" name="__codelineno-28-22" href="#__codelineno-28-22"></a><span class="w">    </span><span class="n">biblioteca</span><span class="p">.</span><span class="na">prestaMateriale</span><span class="p">(</span><span class="s">&quot;978-8804668237&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Anna Bianchi&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// già in prestito!</span>
+</span><span id="__span-28-23"><a id="__codelineno-28-23" name="__codelineno-28-23" href="#__codelineno-28-23"></a>
+</span><span id="__span-28-24"><a id="__codelineno-28-24" name="__codelineno-28-24" href="#__codelineno-28-24"></a><span class="w">    </span><span class="c1">// 4. Cerca nel catalogo</span>
+</span><span id="__span-28-25"><a id="__codelineno-28-25" name="__codelineno-28-25" href="#__codelineno-28-25"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n--- RICERCA ---&quot;</span><span class="p">);</span>
+</span><span id="__span-28-26"><a id="__codelineno-28-26" name="__codelineno-28-26" href="#__codelineno-28-26"></a><span class="w">    </span><span class="n">biblioteca</span><span class="p">.</span><span class="na">cerca</span><span class="p">(</span><span class="s">&quot;orwell&quot;</span><span class="p">);</span>
+</span><span id="__span-28-27"><a id="__codelineno-28-27" name="__codelineno-28-27" href="#__codelineno-28-27"></a>
+</span><span id="__span-28-28"><a id="__codelineno-28-28" name="__codelineno-28-28" href="#__codelineno-28-28"></a><span class="w">    </span><span class="c1">// 5. Statistiche</span>
+</span><span id="__span-28-29"><a id="__codelineno-28-29" name="__codelineno-28-29" href="#__codelineno-28-29"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n--- STATISTICHE ---&quot;</span><span class="p">);</span>
+</span><span id="__span-28-30"><a id="__codelineno-28-30" name="__codelineno-28-30" href="#__codelineno-28-30"></a><span class="w">    </span><span class="n">biblioteca</span><span class="p">.</span><span class="na">stampaStatistiche</span><span class="p">();</span>
+</span><span id="__span-28-31"><a id="__codelineno-28-31" name="__codelineno-28-31" href="#__codelineno-28-31"></a>
+</span><span id="__span-28-32"><a id="__codelineno-28-32" name="__codelineno-28-32" href="#__codelineno-28-32"></a><span class="w">    </span><span class="c1">// 6. Restituzione</span>
+</span><span id="__span-28-33"><a id="__codelineno-28-33" name="__codelineno-28-33" href="#__codelineno-28-33"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n--- RESTITUZIONE ---&quot;</span><span class="p">);</span>
+</span><span id="__span-28-34"><a id="__codelineno-28-34" name="__codelineno-28-34" href="#__codelineno-28-34"></a><span class="w">    </span><span class="n">biblioteca</span><span class="p">.</span><span class="na">riceviRestituzione</span><span class="p">(</span><span class="s">&quot;978-8845292613&quot;</span><span class="p">);</span>
+</span><span id="__span-28-35"><a id="__codelineno-28-35" name="__codelineno-28-35" href="#__codelineno-28-35"></a>
+</span><span id="__span-28-36"><a id="__codelineno-28-36" name="__codelineno-28-36" href="#__codelineno-28-36"></a><span class="w">    </span><span class="c1">// 7. Statistiche aggiornate</span>
+</span><span id="__span-28-37"><a id="__codelineno-28-37" name="__codelineno-28-37" href="#__codelineno-28-37"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n--- STATISTICHE AGGIORNATE ---&quot;</span><span class="p">);</span>
+</span><span id="__span-28-38"><a id="__codelineno-28-38" name="__codelineno-28-38" href="#__codelineno-28-38"></a><span class="w">    </span><span class="n">biblioteca</span><span class="p">.</span><span class="na">stampaStatistiche</span><span class="p">();</span>
+</span><span id="__span-28-39"><a id="__codelineno-28-39" name="__codelineno-28-39" href="#__codelineno-28-39"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="bonus-per-chi-finisce-prima">⭐ Bonus — Per chi finisce prima<a class="headerlink" href="#bonus-per-chi-finisce-prima" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Bonus 1 — Classe <code>Utente</code></p>
+<p>Crea la classe <code>Utente</code> con:</p>
+<ul>
+<li><code>nome</code>, <code>cognome</code>, <code>email</code> (String)</li>
+<li><code>maxPrestiti</code> (int, default 3)</li>
+<li><code>prestitiAttivi</code> (ArrayList di materiali)</li>
+</ul>
+<p>Aggiungi il metodo <code>boolean puoPrendereInPrestito()</code> che controlla se ha raggiunto il limite.
+Aggiorna <code>Biblioteca</code> per usare <code>HashMap&lt;Utente, ArrayList&lt;MaterialeBiblioteca&gt;&gt;</code>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Bonus 2 — Ordinamento</p>
+<p>Aggiungi un metodo <code>ordinaPerTitolo()</code> che ordina il catalogo alfabeticamente usando <code>Collections.sort()</code> e implementa <code>Comparable&lt;MaterialeBiblioteca&gt;</code> nella classe astratta.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Bonus 3 — Storico prestiti</p>
+<p>Crea una classe <code>RecordPrestito</code> con: materiale, utente, dataInizio, dataFine (usa <code>String</code> per semplicità). Mantieni uno storico completo in <code>Biblioteca</code> oltre ai prestiti attivi.</p>
+</div>
+<hr />
+<h2 id="criteri-di-valutazione">📋 Criteri di valutazione<a class="headerlink" href="#criteri-di-valutazione" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Step completato</th>
+<th>Valutazione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Step 1–2</td>
+<td>☆☆ — Sufficiente: basi e strutture elementari</td>
+</tr>
+<tr>
+<td>Step 3–4</td>
+<td>★☆ — Buono: sa strutturare dati con OOP</td>
+</tr>
+<tr>
+<td>Step 5</td>
+<td>★★ — Ottimo: comprende ereditarietà e polimorfismo</td>
+</tr>
+<tr>
+<td>Step 6</td>
+<td>★★+ — Molto ottimo: sa usare interfacce come contratti</td>
+</tr>
+<tr>
+<td>Step 7</td>
+<td>★★★ — Eccellente: sa integrare tutti i concetti</td>
+</tr>
+<tr>
+<td>Bonus</td>
+<td>🏆 — Eccellente con iniziativa</td>
+</tr>
+</tbody>
+</table>
+<h3 id="requisiti-trasversali">Requisiti trasversali<a class="headerlink" href="#requisiti-trasversali" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Il codice <strong>compila ed esegue</strong> senza errori</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> I nomi di classi, metodi e variabili sono <strong>significativi e consistenti</strong></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Ogni file <code>.java</code> ha il nome uguale alla classe pubblica</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> I campi sono <code>private</code> con getter/setter dove appropriato</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Almeno un commento <code>// Scelta di design: ...</code> per ogni classe creata</li>
+</ul>
+<hr />
+<div class="admonition quote">
+<p class="admonition-title">Ricorda</p>
+<p>L'obiettivo non è arrivare al Step 7 il prima possibile.
+È capire <strong>perché</strong> ogni nuovo strumento risolve un problema che il precedente non poteva risolvere.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Torna su
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "navigation.path", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate", "toc.follow", "section.label"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
