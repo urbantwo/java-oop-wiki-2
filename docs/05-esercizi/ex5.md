@@ -19,6 +19,7 @@
 | 4 | Enum | Categorizzare con sicurezza |
 | 5 | Classe astratta | Condividere struttura tra tipi diversi |
 | 6 | Interfacce | Definire contratti e comportamenti |
+| **6b** | **Scanner e input utente** | **Rendere il programma interattivo** |
 | 7 | Integrazione | Un sistema funzionante completo |
 
 ---
@@ -665,6 +666,481 @@ Scrivi un metodo `stampaCatalogo(ArrayList<MaterialeBiblioteca> catalogo)` che:
     - `MaterialeBiblioteca` è una classe **astratta**: perché non un'interfaccia?
     - `Ricercabile` è un'**interfaccia**: perché non una classe astratta?
     - Cosa cambierebbe se `prendiInPrestito()` fosse in un'interfaccia?
+
+---
+
+## Step 6b — Interazione con l'utente: lo `Scanner`
+
+!!! info "Perché questa sezione"
+    Finora il programma esegue sempre le stesse operazioni, scritte a mano nel `main`.
+    Per rendere il sistema **vivo** — dove chi lo usa decide cosa fare — dobbiamo leggere input da tastiera a runtime.
+    
+    Questo è il ponte tra il codice che abbiamo costruito e un'applicazione interattiva reale.
+
+### Concetti coinvolti
+
+`Scanner` · `System.in` · `nextLine()` · `nextInt()` · `parseInt()` · `while` · `switch` · `try/catch` · `Exception` · gestione input non valido
+
+---
+
+### 🔍 Come funziona `Scanner`
+
+`Scanner` è una classe della libreria standard Java che legge dati da una sorgente — nel nostro caso la **tastiera** (`System.in`).
+
+```java
+import java.util.Scanner;  // (1)
+
+Scanner scanner = new Scanner(System.in);  // (2)
+
+System.out.print("Inserisci il tuo nome: ");
+String nome = scanner.nextLine();  // (3) — legge una riga intera
+
+System.out.print("Inserisci la tua età: ");
+int eta = Integer.parseInt(scanner.nextLine());  // (4) — legge e converte
+
+System.out.println("Ciao " + nome + ", hai " + eta + " anni!");
+
+scanner.close();  // (5) — buona pratica: chiudi lo scanner quando non serve più
+```
+
+| Punto | Cosa fa |
+|-------|---------|
+| `(1)` | Importa la classe (necessario se non usi un IDE che lo fa auto) |
+| `(2)` | Crea uno Scanner collegato alla tastiera |
+| `(3)` | Aspetta che l'utente scriva qualcosa e prema Invio, poi restituisce la stringa |
+| `(4)` | Legge la stringa e la converte in `int` con `Integer.parseInt()` |
+| `(5)` | Rilascia le risorse — abituati a farlo |
+
+!!! warning "Usa sempre `nextLine()`"
+    Scanner ha anche `nextInt()`, `nextDouble()` ecc., ma **evitali** per ora: lasciano un `\n` residuo nel buffer che causa comportamenti strani alla prossima lettura.
+    
+    La strategia più sicura e prevedibile:
+    ```java
+    // ✅ Leggi sempre una riga intera, poi converti se serve
+    String riga = scanner.nextLine();
+    int numero = Integer.parseInt(riga);
+    double valore = Double.parseDouble(riga);
+    ```
+
+---
+
+### 📋 Compiti
+
+**6b.1 — Il tuo primo input**
+
+Scrivi un piccolo programma separato (classe `ProvaScanner`) che:
+
+1. Chiede il nome dell'utente
+2. Chiede quanti libri ha letto quest'anno
+3. Stampa un messaggio personalizzato:
+   - 0 libri: `"📖 Quest'anno potresti iniziare con qualcosa di breve!"`
+   - 1–5 libri: `"📚 Buon ritmo, continua così!"`
+   - 6 o più: `"🏆 Sei un lettore accanito!"`
+
+```java
+import java.util.Scanner;
+
+public class ProvaScanner {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Come ti chiami? ");
+        String nome = scanner.nextLine();
+
+        System.out.print("Quanti libri hai letto quest'anno? ");
+        int libriLetti = Integer.parseInt(scanner.nextLine());
+
+        // scrivi qui la logica con if/else if/else
+
+        scanner.close();
+    }
+}
+```
+
+---
+
+**6b.2 — Menù a scelta con `while` e `switch`**
+
+Il pattern fondamentale per qualsiasi applicazione interattiva è il **menù con loop**:
+
+```java
+boolean continua = true;
+
+while (continua) {
+    // 1. mostra le opzioni
+    System.out.println("\n╔══════════════════════════╗");
+    System.out.println("║   BIBLIOTECA — MENÙ      ║");
+    System.out.println("╠══════════════════════════╣");
+    System.out.println("║  1. Mostra catalogo      ║");
+    System.out.println("║  2. Cerca materiale      ║");
+    System.out.println("║  3. Prendi in prestito   ║");
+    System.out.println("║  4. Restituisci          ║");
+    System.out.println("║  5. Statistiche          ║");
+    System.out.println("║  0. Esci                 ║");
+    System.out.println("╚══════════════════════════╝");
+    System.out.print("Scelta: ");
+
+    // 2. leggi la scelta
+    String input = scanner.nextLine().trim();
+
+    // 3. esegui l'azione corrispondente
+    switch (input) {
+        case "1":
+            biblioteca.stampaCatalogo();
+            break;
+        case "2":
+            System.out.print("Parola da cercare: ");
+            String query = scanner.nextLine();
+            biblioteca.cerca(query);
+            break;
+        case "0":
+            System.out.println("👋 Arrivederci!");
+            continua = false;
+            break;
+        default:
+            System.out.println("⚠️ Scelta non valida. Riprova.");
+    }
+}
+```
+
+!!! tip "`.trim()`"
+    `scanner.nextLine().trim()` rimuove spazi e caratteri invisibili prima e dopo la stringa. È un'abitudine salvavita: se l'utente preme la barra spaziatrice per sbaglio, il programma non si rompe.
+
+Implementa il menù completo con tutte le 5 opzioni collegate alla tua classe `Biblioteca`.
+
+---
+
+---
+
+### 💥 Pausa — Le Eccezioni
+
+Prima di andare avanti, dobbiamo parlare di una cosa importante: cosa succede quando il programma va **in crash**.
+
+---
+
+#### Cosa è un'eccezione?
+
+Prova a eseguire questo codice:
+
+```java
+String input = "pippo";
+int numero = Integer.parseInt(input); // 💣
+```
+
+Ottieni questo:
+
+```
+Exception in thread "main" java.lang.NumberFormatException: For input string: "pippo"
+	at java.base/java.lang.NumberFormatException.noMatch(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:668)
+	at Main.main(Main.java:3)
+```
+
+Il programma si è **fermato di colpo**. Questo si chiama **eccezione** — un errore che avviene mentre il programma è in esecuzione (non in compilazione, quello lo vedi già nell'IDE).
+
+---
+
+#### La metafora del bambino e della scatola 🧒📦
+
+!!! example "Pensa a questa scena"
+
+    Immagina di chiedere a un bambino:
+
+    > *"Prendi dalla scatola il quarto biscotto."*
+
+    Se nella scatola ci sono solo 2 biscotti, il bambino si blocca, ti guarda confuso e non sa cosa fare. Non può eseguire il comando.
+
+    In Java è uguale: se chiedi a `Integer.parseInt("pippo")` di trasformare `"pippo"` in numero, Java si blocca perché **non sa come farlo**. Lancia un'eccezione e il programma si ferma.
+
+    **La domanda è: vuoi che il programma crolli, o vuoi gestire la situazione?**
+
+    Con il `try/catch` dici al bambino:
+    > *"Prova a prendere il quarto biscotto. **Se non c'è**, dimmi 'non ci sono abbastanza biscotti' e aspetta le mie istruzioni."*
+
+    Il bambino non va in crisi — sa cosa fare anche quando qualcosa va storto.
+
+---
+
+#### La struttura `try/catch`
+
+```java
+try {
+    // (1) Prova a eseguire questo codice...
+    int numero = Integer.parseInt("pippo");
+    System.out.println("Numero: " + numero); // questa riga NON viene eseguita
+
+} catch (NumberFormatException e) {
+    // (2) ...se va storto con QUESTO tipo di errore, fai invece questo
+    System.out.println("❌ Quello non era un numero!");
+}
+
+// (3) il programma continua normalmente da qui
+System.out.println("Il programma non è crashato.");
+```
+
+Output:
+```
+❌ Quello non era un numero!
+Il programma non è crashato.
+```
+
+| Blocco | Significato |
+|--------|-------------|
+| `try { }` | "Prova a fare questo" |
+| `catch (TipoEccezione e) { }` | "Se va storto **in questo modo specifico**, fai questo invece" |
+| Dopo il catch | Il programma riprende normalmente |
+
+---
+
+#### I tipi di eccezione
+
+Le eccezioni hanno un **tipo** che descrive cosa è andato storto. Le più comuni che incontrerai:
+
+| Eccezione | Quando si lancia |
+|-----------|-----------------|
+| `NumberFormatException` | `Integer.parseInt("pippo")` — la stringa non è un numero |
+| `ArrayIndexOutOfBoundsException` | Hai acceduto a `array[10]` ma l'array ha solo 5 elementi |
+| `NullPointerException` | Hai chiamato un metodo su una variabile che vale `null` |
+| `ArithmeticException` | Divisione per zero: `int x = 5 / 0` |
+
+!!! info "Come capisce Java quale catch usare?"
+    Java controlla se l'eccezione lanciata **è del tipo** indicato nel `catch`. Puoi avere più blocchi catch per gestire errori diversi:
+
+    ```java
+    try {
+        int[] numeri = new int[3];
+        numeri[10] = Integer.parseInt("pippo"); // due potenziali errori
+    } catch (NumberFormatException e) {
+        System.out.println("Non è un numero.");
+    } catch (ArrayIndexOutOfBoundsException e) {
+        System.out.println("Indice fuori dal range dell'array.");
+    }
+    ```
+
+---
+
+#### La variabile `e` — il messaggio d'errore
+
+La `e` nel `catch` è l'oggetto eccezione. Puoi usarla per capire cosa è andato storto:
+
+```java
+try {
+    int numero = Integer.parseInt("pippo");
+} catch (NumberFormatException e) {
+    System.out.println("Errore: " + e.getMessage());
+    // stampa: Errore: For input string: "pippo"
+}
+```
+
+!!! tip "In fase di sviluppo usa `e.printStackTrace()`"
+    ```java
+    catch (NumberFormatException e) {
+        e.printStackTrace(); // stampa tutta la "traccia" dell'errore, utile per debug
+    }
+    ```
+    In un programma finito mostrerai un messaggio carino all'utente. Durante lo sviluppo, `printStackTrace()` ti aiuta a capire dove e perché è successo l'errore.
+
+---
+
+#### Perché non mettere tutto in `try/catch`?
+
+!!! warning "Il try/catch non è un tappabuchi"
+    
+    Questo codice è **sbagliato** anche se "funziona":
+
+    ```java
+    // ❌ Cattiva pratica: nasconde i problemi invece di risolverli
+    try {
+        biblioteca.prestaMateriale(isbn, utente);
+        int x = 5 / 0;
+        String s = null;
+        s.length();
+    } catch (Exception e) {
+        // faccio finta che non sia successo niente
+    }
+    ```
+
+    Il `try/catch` va usato **solo dove sai che un errore esterno è possibile** (input utente, file, rete) e **hai un piano** per gestirlo. Non serve a nascondere bug nel tuo codice.
+
+---
+
+#### Riepilogo visivo
+
+```
+         try {
+           │
+           │  codice che potrebbe fallire
+           │
+           ├── tutto ok? ──────────────────────────► continua normalmente
+           │
+           └── eccezione! ──► catch (TipoEccezione e) {
+                                  gestisci l'errore
+                              }
+                              │
+                              └──────────────────────► continua normalmente
+```
+
+---
+
+**6b.3 — Lettura guidata con validazione**
+
+Adesso che sai cosa sono le eccezioni, ha senso questo codice: quando `Integer.parseInt()` fallisce perché l'utente ha scritto qualcosa di non numerico, lo **intercettiamo** e chiediamo di reinserire:
+
+Quando chiedi un numero all'utente, lui potrebbe scrivere qualsiasi cosa. Gestisci l'input non valido con `try/catch`:
+
+```java
+public static int leggiIntero(Scanner scanner, String messaggio) {
+    while (true) {
+        System.out.print(messaggio);
+        String riga = scanner.nextLine().trim();
+        try {
+            return Integer.parseInt(riga);
+        } catch (NumberFormatException e) {
+            System.out.println("❌ \"" + riga + "\" non è un numero valido. Riprova.");
+        }
+    }
+}
+```
+
+Usa questo metodo quando il menù chiede un numero (es. anni di pubblicazione, durata DVD).
+
+---
+
+**6b.4 — Aggiungi materiali da tastiera**
+
+Implementa l'opzione **"6. Aggiungi libro"** nel menù. Deve:
+
+1. Chiedere tutti i dati del libro uno alla volta (titolo, autore, ISBN, anno, pagine, prezzo)
+2. Validare che anno e pagine siano numeri interi positivi
+3. Validare che il prezzo sia un numero decimale positivo (usa `Double.parseDouble`)
+4. Creare l'oggetto `Libro` e aggiungerlo al catalogo con `biblioteca.aggiungiMateriale()`
+5. Confermare l'aggiunta
+
+```
+--- AGGIUNGI LIBRO ---
+Titolo: Il Barone Rampante
+Autore: Italo Calvino
+ISBN: 978-8804668240
+Anno di pubblicazione: 1957
+Numero di pagine: 284
+Prezzo (€): 11.90
+
+➕ Aggiunto: "Il Barone Rampante" — Italo Calvino
+```
+
+!!! tip "Validare il prezzo"
+    ```java
+    public static double leggiDouble(Scanner scanner, String messaggio) {
+        while (true) {
+            System.out.print(messaggio);
+            try {
+                double valore = Double.parseDouble(scanner.nextLine().trim());
+                if (valore < 0) {
+                    System.out.println("❌ Il valore non può essere negativo.");
+                    continue;
+                }
+                return valore;
+            } catch (NumberFormatException e) {
+                System.out.println("❌ Formato non valido. Usa il punto come separatore decimale (es. 12.50).");
+            }
+        }
+    }
+    ```
+
+---
+
+**6b.5 — Prestito interattivo**
+
+Implementa l'opzione **"3. Prendi in prestito"**:
+
+1. Chiedi il nome dell'utente
+2. Mostra la lista dei materiali disponibili (numerati)
+3. Chiedi all'utente di scegliere un numero dalla lista
+4. Chiama `biblioteca.prestaMateriale(isbn, nomeUtente)`
+
+```
+--- PRESTITO ---
+Nome utente: Mario Rossi
+
+Materiali disponibili:
+  [1] 📚 "Il Nome della Rosa" — Umberto Eco
+  [2] 📚 "1984" — George Orwell
+  [3] 💿 "Parasite" — regia di Bong Joon-ho
+
+Scegli il numero del materiale (0 per annullare): 2
+
+✅ "1984" preso in prestito da Mario Rossi — scadenza: 30 giorni
+```
+
+---
+
+**6b.6 — Restituzione interattiva**
+
+Implementa l'opzione **"4. Restituisci"**:
+
+1. Chiedi il nome dell'utente
+2. Mostra la lista dei materiali che quell'utente ha in prestito
+3. Se non ne ha nessuno: avvisa e torna al menù
+4. Chiedi quale restituire
+5. Chiama `biblioteca.riceviRestituzione(isbn)`
+
+---
+
+**6b.7 — Loop completo: metti tutto insieme**
+
+Il `main` finale deve:
+
+1. Creare la `Biblioteca` e pre-caricare 4–5 materiali (così non si parte da zero)
+2. Avviare il loop del menù
+3. Gestire tutte le opzioni
+4. Chiudere lo `Scanner` solo quando l'utente sceglie "0 — Esci"
+
+!!! warning "Chiudi lo Scanner solo alla fine"
+    Non creare e chiudere `Scanner` dentro ogni metodo. Crealo **una volta sola** nel `main`, passalo come parametro ai metodi che ne hanno bisogno, e chiudilo solo quando il programma termina.
+    
+    ```java
+    // ✅ Corretto
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Biblioteca biblioteca = new Biblioteca("Biblioteca Civica");
+        
+        avviaMenu(scanner, biblioteca); // passa scanner come parametro
+        
+        scanner.close(); // chiude solo qui
+    }
+    
+    public static void avviaMenu(Scanner scanner, Biblioteca biblioteca) {
+        // usa scanner senza crearlo né chiuderlo
+    }
+    ```
+
+---
+
+??? example "Schema completo del menù"
+    ```
+    ╔══════════════════════════════╗
+    ║   BIBLIOTECA — MENÙ          ║
+    ╠══════════════════════════════╣
+    ║  1. Mostra catalogo          ║
+    ║  2. Cerca materiale          ║
+    ║  3. Prendi in prestito       ║
+    ║  4. Restituisci              ║
+    ║  5. Statistiche              ║
+    ║  6. Aggiungi libro           ║
+    ║  0. Esci                     ║
+    ╚══════════════════════════════╝
+    Scelta: _
+    ```
+
+    | Scelta | Metodo chiamato | Input richiesto |
+    |--------|-----------------|-----------------|
+    | `1` | `biblioteca.stampaCatalogo()` | nessuno |
+    | `2` | `biblioteca.cerca(query)` | parola chiave |
+    | `3` | `biblioteca.prestaMateriale(isbn, utente)` | nome utente + selezione |
+    | `4` | `biblioteca.riceviRestituzione(isbn)` | nome utente + selezione |
+    | `5` | `biblioteca.stampaStatistiche()` | nessuno |
+    | `6` | `biblioteca.aggiungiMateriale(new Libro(...))` | tutti i campi del libro |
+    | `0` | — | nessuno, esce dal loop |
 
 ---
 
